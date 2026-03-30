@@ -36,13 +36,18 @@ class MainActivity : AppCompatActivity() {
         val Resulat = binding.textViewResultat.text.toString()
         val activityIntent = Intent(this, Resulat::class.java)
         val nombreR = (1..6).random()
+        DataManager.historique.add(nombreR)
         val resID = resources.getIdentifier("de_$nombreR", "drawable",packageName)
         binding.imageViewDe.setImageResource(resID)
         activityIntent.putExtra(EXTRA_Resulat, Resulat)
 
+
+
         val secretCode = binding.editTextPasswordCode.text.toString()
+        DataManager.codeSecret= secretCode;
         if (secretCode != "") activityIntent.putExtra(EXTRA_SECRET, secretCode)
 
+        binding.textViewResultat.text = nombreR.toString()
     }
 
     fun clickBoutonHistorique(){

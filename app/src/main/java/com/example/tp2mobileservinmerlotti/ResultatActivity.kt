@@ -2,6 +2,8 @@ package com.example.tp2mobileservinmerlotti
 
 import android.R.attr.type
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -25,16 +27,26 @@ class ResultatActivity : AppCompatActivity() {
     }
 
     fun initialiserUI() {
-
+        ilEstBon()
+        historique()
     }
 
     fun ilEstBon(){
-        val secret = intent.getStringExtra(EXTRA_SECRET)
+        val secret = DataManager.codeSecret
 
-        if (secret!= "Bobbie"){
+        if (secret == "Bobbie"){
             binding.TextViewwiner.setText("Tu as gagné 10 $ ")
         }else{
             binding.TextViewwiner.setText("Tu dois donner 100 $ à MOI ")
         }
+    }
+    fun historique(){
+        val listView = findViewById<ListView>(R.id.listViewHistorique)
+
+        val listeString = DataManager.historique.map { "Dé: $it" }
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listeString)
+
+        listView.adapter = adapter
     }
 }
