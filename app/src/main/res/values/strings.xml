@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TP2 mobile Servin Merlotti</string>
+    <string name="pratique_examen">pratique examen</string>
+    <string name="historique">historique</string>
+    <string name="lancer">lancer</string>
+    <string name="code_secret">code_secret</string>
+    <string name="img_de">img_de</string>
 </resources>
