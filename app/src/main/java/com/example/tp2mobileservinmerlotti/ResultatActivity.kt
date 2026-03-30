@@ -7,13 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tp2mobileservinmerlotti.databinding.ActivityMainBinding
+import com.example.tp2mobileservinmerlotti.databinding.ActivityResultatBinding
 
 class ResultatActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityResultatBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityResultatBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -31,7 +32,9 @@ class ResultatActivity : AppCompatActivity() {
         val secret = intent.getStringExtra(EXTRA_SECRET)
 
         if (secret!= "Bobbie"){
-            binding.textVi
+            binding.TextViewwiner.setText("Tu as gagné 10 $ ")
+        }else{
+            binding.TextViewwiner.setText("Tu dois donner 100 $ à MOI ")
         }
     }
 }
